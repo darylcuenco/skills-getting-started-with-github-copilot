@@ -20,8 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
-        // build participants markup
-        let participantsMarkup = "<p><strong>Participants:</strong> None yet</p>";
+        // build participants markup with consistent container
+        let participantsMarkup = `
+          <div class="participants">
+            <strong>Participants:</strong>
+            <p class="none">None yet</p>
+          </div>
+        `;
         if (details.participants && details.participants.length > 0) {
           const items = details.participants
             .map(email => `<li>${email}</li>`)
