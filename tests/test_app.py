@@ -4,7 +4,7 @@ import pytest
 def test_root_redirects(client):
     # Arrange: nothing special
     # Act
-    response = client.get("/")
+    response = client.get("/", follow_redirects=False)
     # Assert
     assert response.status_code == 307
     assert response.headers["location"].endswith("/static/index.html")
